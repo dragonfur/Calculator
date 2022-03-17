@@ -14,7 +14,10 @@ function multiply(firstNumber, secondNumber){
 }
 
 function divide(firstNumber, secondNumber){
-    return firstNumber / secondNumber
+    if (secondNumber === 0) {
+        return "ERROR"
+    } else {
+    return firstNumber / secondNumber}
 }
 
 //operator function

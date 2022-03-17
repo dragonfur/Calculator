@@ -8,7 +8,38 @@
     <title>Calculator</title>
 </head>
 <body>
-    <div class="title"></div>
+    <div class="title">Calculator</div>
+    <div class="calculator">
+        <div class="screen">
+            <div id="display"></div>
+        </div>
+        <div class="buttons">
+            <div id="clear-delete-posneg"></div>
+                <button class="cledelpn" id="clear">AC</button>
+                <button class="cledelpn" id="delete">DEL</button>
+                <button class="cledelpn" id="posneg">(-)</button>
+            <div class="keypad">
+                <button class="digits" id="0">0</button>
+                <button class="digits" id="1">1</button>
+                <button class="digits" id="2">2</button>
+                <button class="digits" id="3">3</button>
+                <button class="digits" id="4">4</button>
+                <button class="digits" id="5">5</button>
+                <button class="digits" id="6">6</button>
+                <button class="digits" id="7">7</button>
+                <button class="digits" id="8">8</button>
+                <button class="digits" id="9">9</button>
+                <button class="digits" id="decimal">.</button>
+            </div>
+            <div class="operands">
+                <button class="operation" id="add">+</button>
+                <button class="operation" id="subtract">-</button>
+                <button class="operation" id="multiply">x</button>
+                <button class="operation" id="divide">÷</button>
+            </div>
+            <button id="equals">=</button>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
