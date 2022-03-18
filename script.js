@@ -10,8 +10,17 @@ var storageDisplay = "0"
 //getting calculator display
 const display = document.querySelector("#display")
 
+//rounder
+function rounder(){
+    if (displayValue.length > 20){
+        displayValue = displayValue.slice(0, displayValue.length -1)
+        return displayValue
+    }
+}
+
 //display change function
 function changingDisplay(){
+    rounder()
     storageValue = displayValue
     display.textContent = storageValue
 }

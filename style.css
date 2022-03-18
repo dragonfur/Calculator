@@ -1,5 +1,22 @@
 /* style */
 
+@font-face{
+    font-family: Calculator;
+    src: url(font/DIGITALDREAM.ttf)
+}
+
+body{ height:100vh; margin:0; }
+
+header{ min-height:50px; }
+footer{ 
+    min-height:50px; 
+    background:PapayaWhip; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
 body {
     background-color: aliceblue;
     font-family: Arial, Helvetica, sans-serif;
@@ -19,6 +36,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: bisque;
+    margin: 0 710px;
 }
 
 .screen {
@@ -26,7 +45,12 @@ body {
     background-color: antiquewhite;
     display: flex;
     align-items: center;
-    width: 250px;
+    width: 300px;
     justify-content: flex-end;
     padding: 0 25px;
+}
+
+#display{
+    font-family: Calculator;
+    max-width: 280px;
 }
