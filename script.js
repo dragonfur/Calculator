@@ -6,7 +6,6 @@ var firstValue
 var secondValue = "0"
 var operand
 var storageDisplay = "0"
-var newNumber = false
 
 //getting calculator display
 const display = document.querySelector("#display")
@@ -55,8 +54,22 @@ deleteButton.addEventListener("click", () => {
 
 //negative number function
 function negativeNancy() {
-    
+    const keepSakes = parseInt(storageValue)
+    if (keepSakes > 0){
+        displayValue = (Math.abs(storageValue) * -1)
+    }
+    else if (keepSakes < 0){
+        displayValue = Math.abs(storageValue)
+    }
+    displayValue = displayValue.toString()
+    changingDisplay()
 }
+
+//negative function
+const negativeButton = document.querySelector("#posneg")
+negativeButton.addEventListener("click", () => {
+    negativeNancy()
+})
 
 //getting keypad actions
 const numberpad = document.querySelector(".keypad")
@@ -177,12 +190,18 @@ dividingNumbers.addEventListener("click", () => {
 const equalto = document.querySelector("#equals")
 equalto.addEventListener("click", () => {
     secondValue = parseInt(displayValue)
+    if (displayValue === "-"){
+        alert("Invalid format")
+        clearDisplay()
+    }
+    else{
     storageValue = operate(operand, firstValue, secondValue)
     console.log(displayValue)
     equalsDisplay()
     displayValue = "0"
     firstValue = "0"
     secondValue = "0"
+    }
 })
 
 //basic calculator functions
