@@ -18,7 +18,9 @@ function changingDisplay(){
 
 //equals display
 function equalsDisplay(){
+    firstValue = storageValue
     display.textContent = storageValue
+    return firstValue
 }
 
 //clear function
@@ -189,8 +191,8 @@ dividingNumbers.addEventListener("click", () => {
 //equals function
 const equalto = document.querySelector("#equals")
 equalto.addEventListener("click", () => {
-    secondValue = parseInt(displayValue)
-    if (displayValue === "-"){
+    secondValue = parseInt(storageValue)
+    if (storageValue === "-"){
         alert("Invalid format")
         clearDisplay()
     }
@@ -198,8 +200,8 @@ equalto.addEventListener("click", () => {
     storageValue = operate(operand, firstValue, secondValue)
     console.log(displayValue)
     equalsDisplay()
+    console.log(firstValue)
     displayValue = "0"
-    firstValue = "0"
     secondValue = "0"
     }
 })
@@ -244,7 +246,7 @@ function operate(operator, firstNumber, secondNumber){
 
 //storing values
 function storingValues (value){
-    value = displayValue
+    value = storageValue
     firstValue = parseInt(value)
     displayValue = "0"
     changingDisplay()
