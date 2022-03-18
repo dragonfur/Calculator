@@ -56,7 +56,7 @@ deleteButton.addEventListener("click", () => {
 
 //negative number function
 function negativeNancy() {
-    const keepSakes = parseInt(storageValue)
+    const keepSakes = parseFloat(storageValue)
     if (keepSakes > 0){
         displayValue = (Math.abs(storageValue) * -1)
     }
@@ -157,6 +157,20 @@ nine.addEventListener("click", ()=>{
     changingDisplay()
 })
 
+//decimal making function
+function laDecimal() {
+    displayValue.includes(".")
+    ? ""
+    : displayValue = displayValue.concat(".")
+    changingDisplay()
+}
+
+//decimal button
+const decimalButton = document.querySelector("#decimal")
+decimalButton.addEventListener("click", () => {
+    laDecimal()
+})
+
 //getting operand buttons
 const addingNumbers = document.querySelector("#add")
 const subtractingNumbers = document.querySelector("#subtract")
@@ -191,7 +205,7 @@ dividingNumbers.addEventListener("click", () => {
 //equals function
 const equalto = document.querySelector("#equals")
 equalto.addEventListener("click", () => {
-    secondValue = parseInt(storageValue)
+    secondValue = parseFloat(storageValue)
     if (storageValue === "-"){
         alert("Invalid format")
         clearDisplay()
@@ -200,7 +214,6 @@ equalto.addEventListener("click", () => {
     storageValue = operate(operand, firstValue, secondValue)
     console.log(displayValue)
     equalsDisplay()
-    console.log(firstValue)
     displayValue = "0"
     secondValue = "0"
     }
@@ -247,7 +260,7 @@ function operate(operator, firstNumber, secondNumber){
 //storing values
 function storingValues (value){
     value = storageValue
-    firstValue = parseInt(value)
+    firstValue = parseFloat(value)
     displayValue = "0"
     changingDisplay()
     return firstValue
