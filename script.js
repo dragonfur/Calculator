@@ -6,6 +6,7 @@ var firstValue
 var secondValue = "0"
 var operand
 var storageDisplay = "0"
+var newNumber = false
 
 //getting calculator display
 const display = document.querySelector("#display")
@@ -16,17 +17,49 @@ function changingDisplay(){
     display.textContent = storageValue
 }
 
-//clear button
-const clear = document.querySelector("#clear")
-clear.addEventListener("click", () => {
+//equals display
+function equalsDisplay(){
+    display.textContent = storageValue
+}
+
+//clear function
+function clearDisplay() {
     displayValue = "0"
     firstValue = "0"
     secondValue = "0"
     changingDisplay()
+}
+
+//clear button
+const clear = document.querySelector("#clear")
+clear.addEventListener("click", () => {
+    clearDisplay()
 })
 
+//delete function
+function deleteIt() {
+    if (displayValue.length > 1){
+        displayValue = displayValue.slice(0, displayValue.length -1)
+    }
+    else if (displayValue.length === 1){
+        displayValue = "0"
+    }
+    changingDisplay()
+}
+
+//delete button
+const deleteButton = document.querySelector("#delete")
+deleteButton.addEventListener("click", () => {
+    deleteIt()
+})
+
+//negative number function
+function negativeNancy() {
+    
+}
+
 //getting keypad actions
-const digits = document.querySelectorAll(".digits")
+const numberpad = document.querySelector(".keypad")
 const zero = document.querySelector("#zero")
 const one = document.querySelector("#one")
 const two = document.querySelector("#two")
@@ -144,9 +177,12 @@ dividingNumbers.addEventListener("click", () => {
 const equalto = document.querySelector("#equals")
 equalto.addEventListener("click", () => {
     secondValue = parseInt(displayValue)
-    displayValue = operate(operand, firstValue, secondValue)
+    storageValue = operate(operand, firstValue, secondValue)
     console.log(displayValue)
-    changingDisplay()
+    equalsDisplay()
+    displayValue = "0"
+    firstValue = "0"
+    secondValue = "0"
 })
 
 //basic calculator functions
@@ -165,6 +201,7 @@ function multiply(firstNumber, secondNumber){
 function divide(firstNumber, secondNumber){
     if (secondNumber === 0) {
         alert("The universe doesn't allow you to divide by 0!")
+        clearDisplay()
         return "0"
     } else {
     return firstNumber / secondNumber}
