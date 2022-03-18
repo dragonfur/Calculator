@@ -4,7 +4,7 @@
 var displayValue = "0"
 var firstValue
 var secondValue = "0"
-var operand
+var operand = ""
 var storageDisplay = "0"
 
 //getting calculator display
@@ -28,6 +28,7 @@ function clearDisplay() {
     displayValue = "0"
     firstValue = "0"
     secondValue = "0"
+    operand = ""
     changingDisplay()
 }
 
@@ -210,6 +211,9 @@ equalto.addEventListener("click", () => {
         alert("Invalid format")
         clearDisplay()
     }
+    else if (operand === "") {
+        return 
+    }
     else{
     storageValue = operate(operand, firstValue, secondValue)
     console.log(displayValue)
@@ -259,12 +263,20 @@ function operate(operator, firstNumber, secondNumber){
 
 //storing values
 function storingValues (value){
+    if (operand !== ""){
+        secondValue = parseFloat(storageValue)
+        storageValue = operate(operand, firstValue, secondValue)
+        equalsDisplay()
+        firstvalue = storageValue
+        displayValue = "0"
+        return firstValue
+    } else{
     value = storageValue
     firstValue = parseFloat(value)
     displayValue = "0"
     changingDisplay()
     return firstValue
-}
+}}
 
 //starting functions
 changingDisplay()
