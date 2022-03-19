@@ -5,6 +5,11 @@
     src: url(font/DIGITALDREAM.ttf)
 }
 
+.contain{
+    display: flex;
+    margin: 0 200px;
+}
+
 body{ height:100vh; margin:0; }
 
 header{ min-height:50px; }
@@ -36,21 +41,103 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: bisque;
-    margin: 0 710px;
+    background-color: #075296;
+    margin: 0 auto;
+    padding: 10px;
+    padding-bottom: 0px;
+    border-radius: 8px;
+    box-shadow: 5px 5px gray;
+}
+
+#deleteposneg {
+    display: grid;
+}
+
+.buttons{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: auto auto auto auto;
+    padding: 10px;
+    column-gap: 2px;
+}
+
+.grid-item{
+    grid-column: 1 / span 2;
+}
+
+.clear,
+.delete {
+    grid-column: span-2;
+}
+
+.operation {
+    grid-column-start: 4;
+    padding: 20px;
 }
 
 .screen {
     height: 50px;
-    background-color: antiquewhite;
+    background-color: #b0b0ae;
     display: flex;
     align-items: center;
-    width: 300px;
+    width: 240px;
     justify-content: flex-end;
-    padding: 0 25px;
+    padding: 0 0px;
+    margin: 0;
 }
 
 #display{
     font-family: Calculator;
-    max-width: 280px;
+    max-width: 250px;
+    overflow: hidden;
+    background-color: transparent;
+    font-size: 30px;
+    padding: 0 10px;
+}
+
+.digits{
+    background-color: #fff;
+    color: darkblue;
+    padding: 20px;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.keypad {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    gap: 5px;
+    max-width: 350px;
+}
+
+.grid-item,
+.grid-item-1,
+.grid-item-2,
+.grid-equals,
+.operation {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#add,
+#divide,
+#multiply,
+#subtract,
+#equals,
+#clear,
+#delete,
+#posneg{
+    background-color: red;
+    color: #fff;
+
+}
+
+.grid-item,
+.grid-item-1,
+.grid-item-2,
+.grid-equals,
+.operation 
+.digits {
+    box-shadow: 5px;
+    border-radius: 5px;
 }

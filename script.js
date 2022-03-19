@@ -12,8 +12,8 @@ const display = document.querySelector("#display")
 
 //rounder
 function rounder(){
-    if (displayValue.length > 20){
-        displayValue = displayValue.slice(0, displayValue.length -1)
+    if (displayValue.length > 9){
+        displayValue = displayValue.slice(1)
         return displayValue
     }
 }
@@ -228,6 +228,9 @@ equalto.addEventListener("click", () => {
     else{
     storageValue = operate(operand, firstValue, secondValue)
     console.log(displayValue)
+    if (storageValue > 999999999){
+        storageValue = Infinity + 1
+    }
     equalsDisplay()
     displayValue = "0"
     secondValue = "0"
@@ -391,6 +394,9 @@ document.addEventListener("keypress", (event) => {
         }
         else{
         storageValue = operate(operand, firstValue, secondValue)
+        if (storageValue > 999999999){
+            storageValue = Infinity + 1
+        }
         equalsDisplay()
         displayValue = "0"
         secondValue = "0"
