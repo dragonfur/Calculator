@@ -22,12 +22,18 @@ function rounder(){
 function changingDisplay(){
     rounder()
     storageValue = displayValue
+    if (storageValue > 999999999){
+        storageValue = Infinity + 1
+    }
     display.textContent = storageValue
 }
 
 //equals display
 function equalsDisplay(){
     firstValue = storageValue
+    if (storageValue > 999999999){
+        storageValue = Infinity + 1
+    }
     display.textContent = storageValue
     return firstValue
 }
@@ -232,6 +238,7 @@ equalto.addEventListener("click", () => {
         storageValue = Infinity + 1
     }
     equalsDisplay()
+    operand = ""
     displayValue = "0"
     secondValue = "0"
     }
@@ -284,7 +291,8 @@ function storingValues (value){
         firstvalue = storageValue
         displayValue = "0"
         return firstValue
-    } else{
+    } 
+    else{
     value = storageValue
     firstValue = parseFloat(value)
     displayValue = "0"
@@ -398,6 +406,7 @@ document.addEventListener("keypress", (event) => {
             storageValue = Infinity + 1
         }
         equalsDisplay()
+        operand = ""
         displayValue = "0"
         secondValue = "0"
         }
@@ -414,3 +423,18 @@ document.addEventListener("keydown", (event) => {
 
 //starting functions
 changingDisplay()
+
+//typing effect
+var i = 0;
+var txt = 'Calculator.'; /* The text */
+var speed = 100; /* The speed/duration of the effect in milliseconds */
+
+function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("demo").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
+
+typeWriter()
