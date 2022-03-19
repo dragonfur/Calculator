@@ -38,7 +38,9 @@ function clearDisplay() {
     firstValue = "0"
     secondValue = "0"
     operand = ""
+    storageValue = "0"
     changingDisplay()
+    clear.blur()
 }
 
 //clear button
@@ -286,6 +288,123 @@ function storingValues (value){
     changingDisplay()
     return firstValue
 }}
+
+//keyboard function
+document.addEventListener("keypress", (event) => {
+    var code = event.code
+    let isShift = false
+    isShift = event.shiftKey
+    if (code === "Numpad0" || code === "Digit0"){
+        displayValue === "0"
+        ? displayValue = "0"
+        : displayValue = displayValue.concat("0")
+        changingDisplay()
+    }
+    else if (code === "Numpad1" || code === "Digit1"){
+        displayValue === "0"
+        ? displayValue = "1"
+        : displayValue = displayValue.concat("1")
+        changingDisplay()
+    }
+    else if (code === "Numpad2" || code === "Digit2"){
+        displayValue === "0"
+        ? displayValue = "2"
+        : displayValue = displayValue.concat("2")
+        changingDisplay()
+    }
+    else if (code === "Numpad3" || code === "Digit3"){
+        displayValue === "0"
+        ? displayValue = "3"
+        : displayValue = displayValue.concat("3")
+        changingDisplay()
+    }
+    else if (code === "Numpad4" || code === "Digit4"){
+        displayValue === "0"
+        ? displayValue = "4"
+        : displayValue = displayValue.concat("4")
+        changingDisplay()
+    }
+    else if (code === "Numpad5" || code === "Digit5"){
+        displayValue === "0"
+        ? displayValue = "5"
+        : displayValue = displayValue.concat("5")
+        changingDisplay()
+    }
+    else if (code === "Numpad6" || code === "Digit6"){
+        displayValue === "0"
+        ? displayValue = "6"
+        : displayValue = displayValue.concat("6")
+        changingDisplay()
+    }
+    else if (code === "Numpad7" || code === "Digit7"){
+        displayValue === "0"
+        ? displayValue = "7"
+        : displayValue = displayValue.concat("7")
+        changingDisplay()
+    }
+    else if (code === "Numpad8" || code === "Digit8"){
+        displayValue === "0"
+        ? displayValue = "8"
+        : displayValue = displayValue.concat("8")
+        changingDisplay()
+    }
+    else if (code === "Numpad9" || code === "Digit9"){
+        displayValue === "0"
+        ? displayValue = "9"
+        : displayValue = displayValue.concat("9")
+        changingDisplay()
+    }
+    else if (code === "NumpadAdd" || (code === "Equal" && isShift === true)){
+        storingValues()
+        operand = "toAdd"
+        return(operand, firstValue)
+    }
+    else if (code === "NumpadDivide" || code === "Slash"){
+        storingValues()
+        operand = "toDivide"
+        return(operand, firstValue)
+    }
+    else if (code === "NumpadSubtract" || code === "Minus"){
+        storingValues()
+        operand = "toSubtract"
+        return(operand, firstValue)
+    }
+    else if (code === "NumpadMultiply" || (code === "Digit8" && isShift === true)){
+        storingValues()
+        operand = "toMultiply"
+        return(operand, firstValue)
+    }
+    else if (code === "NumpadDecimal" || (code === "Period")){
+        laDecimal()
+    }
+    else if (code === "KeyC"){
+        clearDisplay()
+    }
+    else if (code === "NumpadEnter" || code === "Enter"){
+        secondValue = parseFloat(storageValue)
+        if (storageValue === "-"){
+            alert("Invalid format")
+            clearDisplay()
+        }
+        else if (operand === "") {
+            return 
+        }
+        else{
+        storageValue = operate(operand, firstValue, secondValue)
+        equalsDisplay()
+        displayValue = "0"
+        secondValue = "0"
+        }
+    }
+})
+
+//backspace button
+document.addEventListener("keydown", (event) => {
+    var code = event.code
+    if (code === "Backspace") {
+        deleteIt()
+    }
+})
 
 //starting functions
 changingDisplay()
